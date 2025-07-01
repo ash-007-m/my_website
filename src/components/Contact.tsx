@@ -4,9 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, MapPin, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import emailjs from 'emailjs-com';
-
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,43 +12,9 @@ const Contact = () => {
     message: ''
   });
 
-  const { toast } = useToast();
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const result = await emailjs.send(
-        'service_12hxyhm',      // Replace with your EmailJS service ID
-        'template_5ycvi5k',     // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          reply_to: formData.email,
-          message: formData.message
-        },
-        '9waGx5Qa5CPgYeAKt'       // Replace with your EmailJS public key
-      );
-
-      toast({
-        title: 'Message Sent!',
-        description: 'Thank you for reaching out. I’ll get back to you soon.',
-      });
-
-      setFormData({ name: '', email: '', message: '' });
-
-    } catch (error) {
-      toast({
-        title: 'Failed to send',
-        description: 'Please try again later.',
-        variant: 'destructive'
-      });
-      console.error('EmailJS Error:', error);
-    }
   };
 
   const contactInfo = [
@@ -97,7 +60,18 @@ const Contact = () => {
               <CardTitle className="text-xl text-white">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://usebasin.com/f/c97b6d79e6d9"
+                method="POST"
+                className="space-y-6"
+              >
+                <input type="hidden" name="_captcha" value="false" />
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New message from Ashwini Portfolio"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Your Name
@@ -156,7 +130,7 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="space-y-8">
             <Card className="bg-dark-700 border-dark-600">
               <CardHeader>
@@ -210,8 +184,8 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-4">Quick Response</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  I typically respond to emails within 24-48 hours. For urgent matters or 
-                  research collaborations, feel free to mention it in your subject line.
+                  I typically respond to emails within 24–48 hours. For urgent matters or research 
+                  collaborations, feel free to mention it in your subject line.
                 </p>
               </CardContent>
             </Card>
