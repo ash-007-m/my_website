@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from 'emailjs-com';
-
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +16,10 @@ const Contact = () => {
 
   const { toast } = useToast();
 
+  useEffect(() => {
+    emailjs.init('y3RA7bAImvLsdG3q_'); // ✅ Your actual public key
+  }, []);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -26,15 +29,14 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const result = await emailjs.send(
-        'service_cd0c3gn',      // Replace with your EmailJS service ID
-        'template_dnob7iv',     // Replace with your EmailJS template ID
+      await emailjs.send(
+        'service_cd0c3gn',
+        'template_dnob7iv',
         {
           from_name: formData.name,
           reply_to: formData.email,
           message: formData.message
-        },
-        'y3RA7bAImvLsdG3q_'       // Replace with your EmailJS public key
+        }
       );
 
       toast({
@@ -91,7 +93,6 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <Card className="bg-dark-700 border-dark-600">
             <CardHeader>
               <CardTitle className="text-xl text-white">Send a Message</CardTitle>
@@ -156,7 +157,6 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Contact Information */}
           <div className="space-y-8">
             <Card className="bg-dark-700 border-dark-600">
               <CardHeader>
@@ -218,7 +218,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="mt-16 pt-8 border-t border-dark-700 text-center">
           <p className="text-gray-400">
             © 2024 Ashwini Malviya. Built with passion for physics and code.
