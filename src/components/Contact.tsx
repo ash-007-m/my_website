@@ -1,22 +1,8 @@
-import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Github, Linkedin, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
   const contactInfo = [
     {
       icon: MapPin,
@@ -66,23 +52,17 @@ const Contact = () => {
                 className="space-y-6"
               >
                 <input type="hidden" name="_captcha" value="false" />
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New message from Ashwini Portfolio"
-                />
+                <input type="hidden" name="_subject" value="New message from Ashwini Portfolio" />
 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Your Name
                   </label>
-                  <Input
+                  <input
                     id="name"
                     name="name"
                     type="text"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="bg-dark-600 border-dark-500 text-black focus:border-electric-blue"
+                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
                     placeholder="Enter your name"
                     required
                   />
@@ -92,13 +72,11 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address
                   </label>
-                  <Input
+                  <input
                     id="email"
                     name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="bg-dark-600 border-dark-500 text-black focus:border-electric-blue"
+                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
                     placeholder="Enter your email"
                     required
                   />
@@ -108,19 +86,17 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message
                   </label>
-                  <Textarea
+                  <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="bg-dark-600 border-dark-500 text-black focus:border-electric-blue h-32 resize-none"
+                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded h-32 resize-none"
                     placeholder="Write your message here..."
                     required
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-electric-blue hover:bg-electric-blue/80 text-dark-900 font-semibold py-3 glow-box hover:animate-glow transition-all duration-300"
                 >
                   <Send className="mr-2 h-5 w-5" />
@@ -144,7 +120,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">{info.label}</p>
-                      <a 
+                      <a
                         href={info.link}
                         className="text-white hover:text-electric-blue transition-colors"
                       >
