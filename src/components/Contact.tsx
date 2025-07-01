@@ -46,14 +46,13 @@ const Contact = () => {
               <CardTitle className="text-xl text-white">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form
+           <form
   action="https://formspree.io/f/xgvyddpb"
   method="POST"
   className="space-y-6"
 >
-  <input type="hidden" name="_captcha" value="false" />
   <input type="hidden" name="_subject" value="New message from Ashwini Portfolio" />
-  <input type="hidden" name="_redirect" value="https://ash-007-m.github.io/my_website/" />
+  <input type="hidden" name="_next" value="https://ash-007-m.github.io/my_website/" />
 
   <div>
     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -104,6 +103,7 @@ const Contact = () => {
     Send Message
   </Button>
 </form>
+
 
             </CardContent>
           </Card>
