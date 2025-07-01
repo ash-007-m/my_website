@@ -27,14 +27,14 @@ const Contact = () => {
 
     try {
       const result = await emailjs.send(
-        'service_9egmg2k',      // Replace with your EmailJS service ID
-        'template_2rcwkke',     // Replace with your EmailJS template ID
+        'service_12hxyhm',      // Replace with your EmailJS service ID
+        'template_em2vypp',     // Replace with your EmailJS template ID
         {
           from_name: formData.name,
           reply_to: formData.email,
           message: formData.message
         },
-        'uDltjm1UHH-OFxfyP'       // Replace with your EmailJS public key
+        '9waGx5Qa5CPgYeAKt'       // Replace with your EmailJS public key
       );
 
       toast({
