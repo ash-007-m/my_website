@@ -47,7 +47,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <form
-                action="https://usebasin.com/f/c97b6d79e6d9"
+                action="https://formspree.io/f/xgvyddpb"
                 method="POST"
                 className="space-y-6"
               >
