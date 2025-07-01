@@ -65,9 +65,9 @@ const education = [
       email: "jsingla@bt.iitr.ac.in"
     },
     {
-      name: "Dr. Peayush Kumar Choubey",
+      name: "Dr. Piyush Kumar Choubey",
       title: "Professor, Department of Physics, IIT Roorkee, India",
-      email: "peayush@ph.iitr.ac.in"
+      email: "piyush@ph.iitr.ac.in"
     },
     {
       name: "Dr. Sparsh Mittal",

@@ -46,7 +46,7 @@ const Research = () => {
       description: "Developing efficient numerical methods for studying inhomogeneous superconductors using Chebyshev expansion and Green function techniques.",
       domain: "Condensed Matter Physics",
       duration: "July 2024 - Present",
-      supervisor: "Prof Prayush Kumar Chaubey, IIT Roorkee",
+      supervisor: "Prof Piyush Kumar Choubey, IIT Roorkee",
       tools: ["MATLAB", "Numerical Methods", "Green Functions", "Chebyshev Expansion"],
       highlights: [
         "Working on broken translational variance problems",

@@ -1,9 +1,11 @@
-{ "homepage": "https://ash-007-m.github.io/my_website",
-  "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+{
+  "homepage": "https://ash-007-m.github.io/my_website",
 
+  "name": "vite_react_shadcn_ts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",

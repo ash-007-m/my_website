@@ -8,7 +8,7 @@ const Experience = () => {
       title: "Teaching Assistant",
       organization: "IIT Roorkee",
       course: "PHE-101: Quantum Mechanics and Electromagnetic Theory",
-      duration: "Current",
+      duration: "Completed",
       location: "Roorkee, India",
       type: "Academic",
       description: "Assisted in delivering undergraduate-level quantum mechanics and electromagnetic theory course.",

@@ -8,7 +8,7 @@ const Achievements = () => {
       title: "MMVY Scholarship",
       description: "Awarded under the Government of India’s merit-based scholarship scheme.",
       category: "Scholarship",
-      year: "Ongoing",
+      year: "2024",
       icon: Star,
       significance: "National academic recognition"
     },

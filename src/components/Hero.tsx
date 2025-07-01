@@ -70,11 +70,12 @@ const Hero = () => {
           {/* Right: Larger Profile Image */}
          {/* Right: Profile Image - Pleasantly Sized */}
 <div className="md:w-1/3 flex justify-center">
-  <img
-    src="/images/ashwin.jpg"
-    alt="Ashwini Malviya"
-    className="w-52 h-52 md:w-64 md:h-64 object-cover rounded-full border-4 border-electric-blue shadow-lg"
-  />
+          <img
+  src={`${import.meta.env.BASE_URL}images/ashwin.jpg`}
+  alt="Ashwini Malviya"
+  className="w-60 h-60 object-cover rounded-full border-2 border-electric-blue shadow-lg"
+/>
+
 </div>
 
         </div>
