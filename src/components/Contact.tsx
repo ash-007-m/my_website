@@ -34,7 +34,7 @@ const Contact = () => {
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-electric-blue mx-auto mb-6"></div>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            I'm always open to discussing research opportunities, collaborations, or any interesting 
+            I'm always open to discussing research opportunities, collaborations, or any interesting
             physics problems. Feel free to reach out!
           </p>
         </div>
@@ -47,62 +47,64 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <form
-                action="https://formspree.io/f/xgvyddpb"
-                method="POST"
-                className="space-y-6"
-              >
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New message from Ashwini Portfolio" />
+  action="https://formspree.io/f/xgvyddpb"
+  method="POST"
+  className="space-y-6"
+>
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="New message from Ashwini Portfolio" />
+  <input type="hidden" name="_redirect" value="https://ash-007-m.github.io/my_website/" />
 
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
+  <div>
+    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+      Your Name
+    </label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
+      placeholder="Enter your name"
+      required
+    />
+  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+      Email Address
+    </label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded"
+      placeholder="Enter your email"
+      required
+    />
+  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded h-32 resize-none"
-                    placeholder="Write your message here..."
-                    required
-                  />
-                </div>
+  <div>
+    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      className="w-full bg-dark-600 border-dark-500 text-black px-4 py-2 rounded h-32 resize-none"
+      placeholder="Write your message here..."
+      required
+    ></textarea>
+  </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-electric-blue hover:bg-electric-blue/80 text-dark-900 font-semibold py-3 glow-box hover:animate-glow transition-all duration-300"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
+  <Button
+    type="submit"
+    className="w-full bg-electric-blue hover:bg-electric-blue/80 text-dark-900 font-semibold py-3 glow-box hover:animate-glow transition-all duration-300"
+  >
+    <Send className="mr-2 h-5 w-5" />
+    Send Message
+  </Button>
+</form>
+
             </CardContent>
           </Card>
 
@@ -160,7 +162,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-4">Quick Response</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  I typically respond to emails within 24–48 hours. For urgent matters or research 
+                  I typically respond to emails within 24–48 hours. For urgent matters or research
                   collaborations, feel free to mention it in your subject line.
                 </p>
               </CardContent>
