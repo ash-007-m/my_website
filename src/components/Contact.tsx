@@ -17,7 +17,7 @@ const Contact = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    emailjs.init('y3RA7bAImvLsdG3q_'); // ✅ Your actual public key
+    emailjs.init('y3RA7bAImvLsdG3q_'); // ✅ Your public key
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,13 +30,14 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_cd0c3gn',
-        'template_dnob7iv',
+        'service_cd0c3gn',         // ✅ Your service ID
+        'template_dnob7iv',        // ✅ Your template ID (must exist on dashboard)
         {
           from_name: formData.name,
           reply_to: formData.email,
           message: formData.message
-        }
+        },
+        'y3RA7bAImvLsdG3q_'         // ✅ Your public key
       );
 
       toast({
@@ -46,13 +47,13 @@ const Contact = () => {
 
       setFormData({ name: '', email: '', message: '' });
 
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: 'Failed to send',
         description: 'Please try again later.',
         variant: 'destructive'
       });
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error:', error?.text || error);
     }
   };
 
@@ -157,6 +158,7 @@ const Contact = () => {
             </CardContent>
           </Card>
 
+          {/* Contact Info and Social Cards */}
           <div className="space-y-8">
             <Card className="bg-dark-700 border-dark-600">
               <CardHeader>
@@ -210,7 +212,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-white mb-4">Quick Response</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  I typically respond to emails within 24-48 hours. For urgent matters or 
+                  I typically respond to emails within 24–48 hours. For urgent matters or 
                   research collaborations, feel free to mention it in your subject line.
                 </p>
               </CardContent>
