@@ -34,7 +34,7 @@ const Contact = () => {
     try {
       await emailjs.sendForm(
         'service_cd0c3gn',         // ✅ Your service ID
-        'template_dnob7iv',        // ✅ Your template ID
+        'template_ha9707i',        // ✅ Your template ID
         formRef.current,
         'y3RA7bAImvLsdG3q_'        // ✅ Your public key
       );
