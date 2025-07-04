@@ -33,10 +33,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_cd0c3gn',         // ✅ Your service ID
-        'template_ha9707i',        // ✅ Your template ID
+        'service_9egmg2k',         // ✅ Your service ID
+        'template_2rcwkke',        // ✅ Your template ID
         formRef.current,
-        'y3RA7bAImvLsdG3q_'        // ✅ Your public key
+        'uDltjm1UHH-OFxfyP'        // ✅ Your public key
       );
 
       toast({
