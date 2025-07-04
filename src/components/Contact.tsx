@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,15 +9,16 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    reply_to: '',
     message: ''
   });
 
+  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
-    emailjs.init('y3RA7bAImvLsdG3q_'); // ✅ Your public key
+    emailjs.init('y3RA7bAImvLsdG3q_'); // ✅ Your EmailJS public key
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -28,16 +29,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!formRef.current) return;
+
     try {
-      await emailjs.send(
+      await emailjs.sendForm(
         'service_cd0c3gn',         // ✅ Your service ID
-        'template_dnob7iv',        // ✅ Your template ID (must exist on dashboard)
-        {
-          from_name: formData.name,
-          reply_to: formData.email,
-          message: formData.message
-        },
-        'y3RA7bAImvLsdG3q_'         // ✅ Your public key
+        'template_dnob7iv',        // ✅ Your template ID
+        formRef.current,
+        'y3RA7bAImvLsdG3q_'        // ✅ Your public key
       );
 
       toast({
@@ -45,7 +44,7 @@ const Contact = () => {
         description: 'Thank you for reaching out. I’ll get back to you soon.',
       });
 
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ from_name: '', reply_to: '', message: '' });
 
     } catch (error: any) {
       toast({
@@ -99,16 +98,16 @@ const Contact = () => {
               <CardTitle className="text-xl text-white">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="from_name" className="block text-sm font-medium text-gray-300 mb-2">
                     Your Name
                   </label>
                   <Input
-                    id="name"
-                    name="name"
+                    id="from_name"
+                    name="from_name"
                     type="text"
-                    value={formData.name}
+                    value={formData.from_name}
                     onChange={handleInputChange}
                     className="bg-dark-600 border-dark-500 text-black focus:border-electric-blue"
                     placeholder="Enter your name"
@@ -117,14 +116,14 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="reply_to" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address
                   </label>
                   <Input
-                    id="email"
-                    name="email"
+                    id="reply_to"
+                    name="reply_to"
                     type="email"
-                    value={formData.email}
+                    value={formData.reply_to}
                     onChange={handleInputChange}
                     className="bg-dark-600 border-dark-500 text-black focus:border-electric-blue"
                     placeholder="Enter your email"
@@ -158,7 +157,6 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Contact Info and Social Cards */}
           <div className="space-y-8">
             <Card className="bg-dark-700 border-dark-600">
               <CardHeader>
